@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PingPal | Sign up</title>
+  </head>
+  <body class="bg-body-tertiary">
+    <%- include('./includes/header.ejs') %>
+
+    <main>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 mx-auto col-xs-12">
+              <form
+                action="/signup"
+                method="post"
+                class="bg-white px-4 py-5 rounded-4 shadow-md"
+              >
+                <div class="mb-4">
+                  <h1 class="text-center">SignUp here</h1>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="First name"
+                      name="firstname"
+                      required
+                    />
+                  </div>
+                  <div class="col">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Last name"
+                      name="lastname"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Create Username"
+                    name="username"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="username"
+                    placeholder="Enter Your email"
+                    name="email"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="password"
+                    placeholder="Enter Password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    required
+                  />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                  Create Account
+                </button>
+
+                <div class="mt-3 text-center">
+                  <p>
+                    Already have an account ?
+                    <span
+                      ><a
+                        href="/login"
+                        class="text-primary text-decoration-none"
+                        >Login here</a
+                      ></span
+                    >
+                  </p>
+                </div>
+                <div class="mt-3 text-center">
+                  <% if (success_msg) { %>
+                  <p style="color: green"><%= success_msg %></p>
+                  <% } %> <% if (error_msg) { %>
+                  <p style="color: red"><%= error_msg %></p>
+                  <% } %> <% if (error) { %>
+                  <p style="color: red"><%= error %></p>
+                  <% } %>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include('./includes/footer.ejs') %>
+  </body>
+</html>

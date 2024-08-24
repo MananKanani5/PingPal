@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PingPal | Dahsboard</title>
+  </head>
+  <body class="bg-body-tertiary">
+    <%- include('./includes/header.ejs') %>
+
+    <main class="container mt-4">
+      <div class="mb-4">
+        <input
+          type="text"
+          class="form-control"
+          id="userSearch"
+          placeholder="Search users..."
+        />
+      </div>
+
+      <% if (users.length > 0) { %>
+      <div class="list-group">
+        <% users.forEach(otherUser => { %>
+        <a
+          href="/chat/<%= otherUser._id %>"
+          class="list-group-item list-group-item-action py-4 d-flex justify-content-between align-items-center"
+        >
+          <span class="me-2 d-flex align-items-center gap-2">
+            <i class="fa fa-user-circle fs-5" aria-hidden="true"></i>
+            <span class="username"><%= otherUser.username %></span>
+          </span>
+        </a>
+        <% }); %>
+      </div>
+      <% } else { %>
+      <p class="text-center">No other users available.</p>
+      <% } %>
+    </main>
+
+    <%- include('./includes/footer.ejs') %>
+  </body>
+</html>

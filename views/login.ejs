@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PingPal | Login</title>
+  </head>
+  <body class="bg-body-tertiary">
+    <%- include('./includes/header.ejs') %>
+
+    <main>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 mx-auto col-xs-12">
+              <form
+                method="post"
+                action="/login"
+                class="bg-white px-4 py-5 rounded-4 shadow-md"
+              >
+                <div class="mb-4">
+                  <h1 class="text-center">Login here</h1>
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Enter Username"
+                    name="username"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="password"
+                    placeholder="Enter Password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    required
+                  />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                  Login
+                </button>
+
+                <div class="mt-3 text-center">
+                  <p>
+                    Don't have account ?
+                    <span
+                      ><a
+                        href="/signup"
+                        class="text-primary text-decoration-none"
+                        >Create New Account</a
+                      ></span
+                    >
+                  </p>
+                </div>
+
+                <div class="mt-3 text-center">
+                  <% if (success_msg) { %>
+                  <p style="color: green"><%= success_msg %></p>
+                  <% } %> <% if (error_msg) { %>
+                  <p style="color: red"><%= error_msg %></p>
+                  <% } %> <% if (error) { %>
+                  <p style="color: red"><%= error %></p>
+                  <% } %>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include('./includes/footer.ejs') %>
+  </body>
+</html>
